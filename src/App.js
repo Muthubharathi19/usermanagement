@@ -2,7 +2,16 @@ import React, { useState } from 'react'
 import AddUser from './screens/AddUser'
 import UpdateUser from './screens/UpdateUser'
 import UserList from './screens/UserList'
+import styled from 'styled-components';
 
+const Header = styled.div`
+height: 50px;
+background: linear-gradient(272.88deg, #169bd4 4.95%, #4a48eb 93.62%);
+box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.09);
+border: none;
+color: #fff;
+font-weight: 600;
+`
 const App = () => {
   const usersData = [
     { sNo: 1, userId: 'AS2344352', userName: 'John Doe', email: 'johndoe@example.com', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43' },
@@ -40,13 +49,13 @@ const App = () => {
   }
   return (
     <div className="container" >
-      <div style={{ backgroundColor: '#0077a8', color: '#fff', height: 50, flexDirection: 'column', justifyContent: 'center' }}>
-        <h2 style={{ alignSelf: 'center', marginLeft: 20 }}>User Management</h2>
-      </div>
+      <Header style={{ color: '#fff'}}>
+        <h2 style={{ paddingTop:5, marginLeft: 20 , marginTop:0}}>User Management</h2>
+      </Header>
       <div className="flex-row" style={{ display: 'flex', flexDirection: 'row' }}>
         {editing ? (
           <div style={{ width: '30%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <h2 style={{ color: '#0077a8' }}>Edit user</h2>
+            <h2 style={{ color: '#a1a1a1' }}>Edit user</h2>
             <UpdateUser
               setEditing={setEditing}
               currentUser={currentUser}
@@ -55,12 +64,12 @@ const App = () => {
           </div>
         ) : (
           <div className="flex-large" style={{ width: '30%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <h2 style={{ color: '#0077a8' }}>Add user</h2>
+            <h2 style={{ color: '#a1a1a1' }}>Add user</h2>
             <AddUser addUser={addUser} />
           </div>
         )}
         <div className="flex-large" style={{ width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h2 style={{ color: '#0077a8' }}>View users</h2>
+          <h2 style={{ color: '#a1a1a1' }}>View users</h2>
           <UserList users={users} deleteUser={deleteUser} editRow={editRow} />
         </div>
       </div>

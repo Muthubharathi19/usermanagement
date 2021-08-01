@@ -34,13 +34,13 @@ const handleInputChange = (event) => {
         <div>
                 <TextField id="outlined-basic"  label="User id" variant="outlined" name="userId" required value={user.userId} onChange={handleInputChange} />
             </div>
-            <div  style={{paddingTop: 20, width: '100%'}}>
+            <div  style={{marginTop: 20, width: '100%'}}>
                 <TextField id="outlined-basic" label="User Name" variant="outlined" name="userName" required value={user.userName} onChange={handleInputChange} />
             </div>
-            <div  style={{paddingTop: 20}}>
+            <div  style={{marginTop: 20}}>
                 <TextField id="outlined-basic" label="Email" variant="outlined" name="email" required value={user.email} onChange={handleInputChange} />
             </div>
-            <div  style={{paddingTop: 20}}>
+            <div  style={{marginTop: 20}}>
             <TextField
                         style={{ width: '90%' }}
                         id="datetime-local"
@@ -54,7 +54,7 @@ const handleInputChange = (event) => {
                             shrink: true,
                         }}
                     />            </div>
-            <div  style={{paddingTop: 20}}>
+            <div  style={{marginTop: 20}}>
             <TextField
                         style={{ width: '90%' }}
                         id="datetime-local"
@@ -68,8 +68,8 @@ const handleInputChange = (event) => {
                             shrink: true,
                         }}
                     />            </div>
-      <div style={{paddingTop: 20}}>
-      <Button>Update</Button>
+      <div style={{marginTop: 20, width: '90%'}}>
+      <Button style={{marginLeft: '4%'}}>UPDATE</Button>
       </div>
     </form>
   )

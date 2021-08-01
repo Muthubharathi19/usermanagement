@@ -23,7 +23,7 @@ const AddUser = (props) => {
 
     return (
         <form
-            style={{ flexDirection: 'column' }}
+           
             onSubmit={event => {
                 event.preventDefault()
                 if (!user.userName || !user.userName) return
@@ -35,13 +35,13 @@ const AddUser = (props) => {
                 <div>
                     <TextField id="outlined-basic" label="User id" variant="outlined" name="userId" required value={user.userId} onChange={handleInputChange} />
                 </div>
-                <div style={{ paddingTop: 20, }}>
+                <div style={{ marginTop: 20, }}>
                     <TextField id="outlined-basic" label="User Name" variant="outlined" name="userName" required value={user.userName} onChange={handleInputChange} />
                 </div>
-                <div style={{ paddingTop: 20 }}>
+                <div style={{ marginTop: 20 }}>
                     <TextField id="outlined-basic" label="Email" variant="outlined" name="email" required value={user.email} onChange={handleInputChange} />
                 </div>
-                <div style={{ paddingTop: 20 }}>
+                <div style={{ marginTop: 20 }}>
                     <TextField
                         required
                         style={{ width: '90%' }}
@@ -57,7 +57,7 @@ const AddUser = (props) => {
                         }}
                     />
                 </div>
-                <div style={{ paddingTop: 20 }}>
+                <div style={{ marginTop: 20 }}>
                     <TextField
                         required
                         style={{ width: '90%' }}
@@ -74,8 +74,8 @@ const AddUser = (props) => {
                     />
                 </div>
 
-                <div style={{ paddingTop: 20 }}>
-                    <Button>ADD</Button>
+                <div style={{ marginTop: 20, width: '90%'}}>
+                    <Button style={{marginLeft: '4%'}}>ADD</Button>
                 </div>
         </form>
     )
