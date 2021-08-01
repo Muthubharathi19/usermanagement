@@ -11,7 +11,9 @@ border-radius: 50px;
 border: none;
 color: #fff;
 padding: 12px 30px;
-font-weight: 600;
+font-weight: 800;
+cursor: pointer;
+
 `
 const AddUser = (props) => {
     const initialFormState = { userId: '', userName: '', email: '', createdAt: '', updatedAt: '' }

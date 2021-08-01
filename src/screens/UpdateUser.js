@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components'
+
 const Button = styled.button`
 width: 200px;
 height: 50px;
@@ -10,7 +11,8 @@ border-radius: 50px;
 border: none;
 color: #fff;
 padding: 12px 30px;
-font-weight: 600;
+font-weight: 800;
+cursor: pointer;
 `
 const UpdateUser = (props) => {
     const [user, setUser] = useState(props.currentUser)

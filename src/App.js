@@ -5,12 +5,16 @@ import UserList from './screens/UserList'
 import styled from 'styled-components';
 
 const Header = styled.div`
+width: 100%;
 height: 50px;
 background: linear-gradient(272.88deg, #169bd4 4.95%, #4a48eb 93.62%);
 box-shadow: 0px 4px 20px rgba(104, 109, 224, 0.09);
 border: none;
 color: #fff;
 font-weight: 600;
+display: flex;
+flex-direction: row;
+align-items: center;
 `
 const App = () => {
   const usersData = [
@@ -50,7 +54,9 @@ const App = () => {
   return (
     <div className="container" >
       <Header style={{ color: '#fff'}}>
-        <h2 style={{ paddingTop:5, marginLeft: 20 , marginTop:0}}>User Management</h2>
+        <div>
+        <h2 style={{ marginLeft: 20 , }}>User Management</h2>
+        </div>
       </Header>
       <div className="flex-row" style={{ display: 'flex', flexDirection: 'row' }}>
         {editing ? (
