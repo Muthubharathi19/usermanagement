@@ -16,7 +16,7 @@ const App = () => {
     setUsers([...users, user])
   }
   const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.userId !== id))
+    setUsers(users.filter((user) => user.sNo !== id))
   }
   const [editing, setEditing] = useState(false);
   const initialFormState = { userId: null, userName: '', email: '', createdAt: '', updatedAt: '' }

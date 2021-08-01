@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
-// import 'date-fns';
-// import DateFnsUtils from '@date-io/date-fns';
-// import {
-//     MuiPickersUtilsProvider,
-//     KeyboardDatePicker,
-// } from '@material-ui/pickers';
 
 const Button = styled.button`
 width: 200px;
@@ -22,14 +16,8 @@ font-weight: 600;
 const AddUser = (props) => {
     const initialFormState = { userId: '', userName: '', email: '', createdAt: '', updatedAt: '' }
     const [user, setUser] = useState(initialFormState);
-    // const [selectedDate, setSelectedDate] = useState();
-
-    // const handleDateChange = (date) => {
-    //     setSelectedDate(date);
-    // };
     const handleInputChange = (event) => {
         const { name, value } = event.target
-
         setUser({ ...user, [name]: value })
     }
 
@@ -44,7 +32,6 @@ const AddUser = (props) => {
                 setUser(initialFormState)
             }}
          >     
-          {/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
                 <div>
                     <TextField id="outlined-basic" label="User id" variant="outlined" name="userId" required value={user.userId} onChange={handleInputChange} />
                 </div>
@@ -55,22 +42,8 @@ const AddUser = (props) => {
                     <TextField id="outlined-basic" label="Email" variant="outlined" name="email" required value={user.email} onChange={handleInputChange} />
                 </div>
                 <div style={{ paddingTop: 20 }}>
-
-                    {/* <KeyboardDatePicker
-            style={{width: '80%'}}
-            name="createdAt"
-          margin="normal"
-          id="date-picker-dialog"
-          label="Created At"
-          format="MM/dd/yyyy"
-          inputVariant="outlined"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        /> */}
                     <TextField
+                        required
                         style={{ width: '90%' }}
                         id="datetime-local"
                         label="Created At"
@@ -86,6 +59,7 @@ const AddUser = (props) => {
                 </div>
                 <div style={{ paddingTop: 20 }}>
                     <TextField
+                        required
                         style={{ width: '90%' }}
                         id="datetime-local"
                         label="Created At"
@@ -103,7 +77,6 @@ const AddUser = (props) => {
                 <div style={{ paddingTop: 20 }}>
                     <Button>ADD</Button>
                 </div>
-             {/* </MuiPickersUtilsProvider> */}
         </form>
     )
 }

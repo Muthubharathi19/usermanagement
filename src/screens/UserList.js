@@ -25,7 +25,7 @@ const UserList = (props) => (
             <td>{user.updatedAt}</td>
             <td>
               <button  onClick={() => {props.editRow(user)}}>Edit</button>
-              <button onClick={() => props.deleteUser(user.userId)}>Delete</button>
+              <button onClick={() => props.deleteUser(user.sNo)}>Delete</button>
             </td>
           </tr>
         ))
