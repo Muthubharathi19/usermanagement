@@ -82,6 +82,7 @@ const handleInputChange = (event) => {
               <FormControl variant="outlined"  style={{width: '90%'}}>
         <InputLabel htmlFor="outlined-age-native-simple">User Type</InputLabel>
             <Select
+            required
             style={{width: '100%'}}
             label="User Type"
             name="userType"
