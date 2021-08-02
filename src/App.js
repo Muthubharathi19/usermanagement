@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import AddUser from './screens/AddUser'
-import UpdateUser from './screens/UpdateUser'
-import UserList from './screens/UserList'
+import React, { useState } from 'react';
+import UserList from './screens/UserList';
 import styled from 'styled-components';
+import AddUpdateUser from './screens/AddUpdateUser';
 
 const Header = styled.div`
 width: 100%;
@@ -24,19 +23,25 @@ const App = () => {
   ]
   const [users, setUsers] = useState(usersData)
 
-  const addUser = (user) => {
-    user.sNo = users.length + 1
-    setUsers([...users, user])
+  const addUpdateUser = (user) => {
+    if (editing){
+      setEditing(false)
+      setUsers(users.map((eachuser) => (eachuser.sNo === user.sNo ? user : eachuser)))
+    }
+    else{
+      user.sNo = users.length + 1
+      setUsers([...users, user])
+    }
+    setCurrentUser(initialFormState);
   }
   const deleteUser = (id) => {
     setUsers(users.filter((user) => user.sNo !== id))
   }
   const [editing, setEditing] = useState(false);
-  const initialFormState = { userId: null, userName: '', email: '', createdAt: '', updatedAt: '' }
+  const initialFormState = { userId: '', userName: '', email: '', createdAt: '', updatedAt: '' }
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const editRow = (user) => {
     setEditing(true)
-
     setCurrentUser({
       sNo: user.sNo,
       userId: user.userId,
@@ -46,11 +51,6 @@ const App = () => {
       updatedAt: user.updatedAt
     })
   }
-  const updateUser = (sNo, updatedUser) => {
-    setEditing(false)
-
-    setUsers(users.map((user) => (user.sNo === sNo ? updatedUser : user)))
-  }
   return (
     <div className="container" >
       <Header style={{ color: '#fff'}}>
@@ -58,23 +58,16 @@ const App = () => {
         <h2 style={{ marginLeft: 20 , }}>User Management</h2>
         </div>
       </Header>
-      <div className="flex-row" style={{ display: 'flex', flexDirection: 'row' }}>
-        {editing ? (
-          <div style={{ width: '30%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <h2 style={{ color: '#a1a1a1' }}>Edit user</h2>
-            <UpdateUser
-              setEditing={setEditing}
-              currentUser={currentUser}
-              updateUser={updateUser}
-            />
-          </div>
-        ) : (
-          <div className="flex-large" style={{ width: '30%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <div  style={{ width: '30%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <h2 style={{ color: '#a1a1a1' }}>Add user</h2>
-            <AddUser addUser={addUser} />
+            <AddUpdateUser 
+            setEditing={setEditing}
+            currentUser={currentUser}
+            addUpdateUser={addUpdateUser}
+             />
           </div>
-        )}
-        <div className="flex-large" style={{ width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div  style={{ width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h2 style={{ color: '#a1a1a1' }}>View users</h2>
           <UserList users={users} deleteUser={deleteUser} editRow={editRow} />
         </div>
