@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components'
-
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 const Button = styled.button`
 width: 200px;
 height: 50px;
@@ -14,6 +17,10 @@ padding: 12px 30px;
 font-weight: 800;
 cursor: pointer;
 `
+const dropdown =[
+  {value : 'Premium User', name : 'Premium User'},
+  {value : 'New User', name : 'New User'},
+]
 const AddUpdateUser = (props) => {
     const [user, setUser] = useState(props.currentUser)
 
@@ -34,13 +41,13 @@ const handleInputChange = (event) => {
       }}
       >
         <div>
-                <TextField id="outlined-basic"  label="User id" variant="outlined" name="userId" required value={user.userId} onChange={handleInputChange} />
-            </div>
-            <div  style={{marginTop: 20, width: '100%'}}>
-                <TextField id="outlined-basic" label="User Name" variant="outlined" name="userName" required value={user.userName} onChange={handleInputChange} />
+                <TextField  style={{ width: '90%' }} id="outlined-basic"  label="User id" variant="outlined" name="userId" required value={user.userId} onChange={handleInputChange} />
             </div>
             <div  style={{marginTop: 20}}>
-                <TextField id="outlined-basic" label="Email" variant="outlined" name="email" required value={user.email} onChange={handleInputChange} />
+                <TextField  style={{ width: '90%' }} id="outlined-basic" label="User Name" variant="outlined" name="userName" required value={user.userName} onChange={handleInputChange} />
+            </div>
+            <div  style={{marginTop: 20}}>
+                <TextField  style={{ width: '90%' }} id="outlined-basic" label="Email" variant="outlined" name="email" required value={user.email} onChange={handleInputChange} />
             </div>
             <div  style={{marginTop: 20}}>
             <TextField
@@ -69,9 +76,28 @@ const handleInputChange = (event) => {
                         InputLabelProps={{
                             shrink: true,
                         }}
-                    />            </div>
+                    />       
+              </div>
+              <div  style={{marginTop: 20}}>
+              <FormControl variant="outlined"  style={{width: '90%'}}>
+        <InputLabel htmlFor="outlined-age-native-simple">User Type</InputLabel>
+            <Select
+            style={{width: '100%'}}
+            label="User Type"
+            name="userType"
+            value={user.userType}
+            onChange={handleInputChange}
+          >
+              {
+                  dropdown.map((e,key) => {
+                      return <MenuItem key={key} value={e.value}>{e.name}</MenuItem>;
+                  })
+              }
+          </Select>
+          </FormControl>
       <div style={{marginTop: 20, width: '90%'}}>
       <Button style={{marginLeft: '4%'}}>UPDATE</Button>
+      </div>
       </div>
     </form>
   )
