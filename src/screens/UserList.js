@@ -36,6 +36,7 @@ const UserList = (props) => (
         <th>Email</th>
         <th>Created At</th>
         <th>Updated At</th>
+        <th>User Type</th>
         <th></th>
       </Tr>
     </thead>
@@ -49,6 +50,7 @@ const UserList = (props) => (
             <td>{user.email}</td>
             <td>{user.createdAt}</td>
             <td>{user.updatedAt}</td>
+            <td>{user.userType}</td>
             <td>
               <Button  onClick={() => {props.editRow(user)}}>Edit</Button>
               <Button onClick={() => props.deleteUser(user.sNo)}>Delete</Button>

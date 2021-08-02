@@ -17,9 +17,9 @@ align-items: center;
 `
 const App = () => {
   const usersData = [
-    { sNo: 1, userId: 'AS2344352', userName: 'John Doe', email: 'johndoe@example.com', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43' },
-    { sNo: 2, userId: 'AS2344353', userName: 'Albert Wayne', email: 'albert.w@example.com	', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43' },
-    { sNo: 3, userId: 'AS2344354', userName: 'Angela ', email: 'a.smith@example.com	', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43' },
+    { sNo: 1, userId: 'AS2344352', userName: 'John Doe', email: 'johndoe@example.com', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43', userType: 'New User' },
+    { sNo: 2, userId: 'AS2344353', userName: 'Albert Wayne', email: 'albert.w@example.com	', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43', userType: 'Premium User' },
+    { sNo: 3, userId: 'AS2344354', userName: 'Angela ', email: 'a.smith@example.com	', createdAt: '2021-08-29T03:43', updatedAt: '2021-08-29T03:43', userType: 'New User' },
   ]
   const [users, setUsers] = useState(usersData)
 
@@ -38,7 +38,7 @@ const App = () => {
     setUsers(users.filter((user) => user.sNo !== id))
   }
   const [editing, setEditing] = useState(false);
-  const initialFormState = { userId: '', userName: '', email: '', createdAt: '', updatedAt: '' }
+  const initialFormState = { userId: '', userName: '', email: '', createdAt: '', updatedAt: '', userType: '' }
   const [currentUser, setCurrentUser] = useState(initialFormState);
   const editRow = (user) => {
     setEditing(true)
@@ -48,7 +48,8 @@ const App = () => {
       userName: user.userName,
       email: user.email,
       createdAt: user.createdAt,
-      updatedAt: user.updatedAt
+      updatedAt: user.updatedAt,
+      userType: user.userType
     })
   }
   return (
