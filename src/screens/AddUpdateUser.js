@@ -14,7 +14,7 @@ padding: 12px 30px;
 font-weight: 800;
 cursor: pointer;
 `
-const UpdateUser = (props) => {
+const AddUpdateUser = (props) => {
     const [user, setUser] = useState(props.currentUser)
 
 const handleInputChange = (event) => {
@@ -30,7 +30,7 @@ const handleInputChange = (event) => {
     style={{flexDirection:'column'}} 
     onSubmit={event => {
         event.preventDefault()
-        props.updateUser(user.sNo, user)
+        props.addUpdateUser(user)
       }}
       >
         <div>
@@ -77,4 +77,4 @@ const handleInputChange = (event) => {
   )
 }
 
-export default UpdateUser;
+export default AddUpdateUser;
